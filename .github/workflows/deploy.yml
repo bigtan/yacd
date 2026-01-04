@@ -17,10 +17,11 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 'v24.12.0' # engines >=14, use a stable LTS
-          cache: 'npm'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
       
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: corepack enable
       
       - name: Install dependencies
         run: pnpm i
